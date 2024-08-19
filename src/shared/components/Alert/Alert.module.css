@@ -1,0 +1,20 @@
+.alert {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  margin: 5px 0px;
+}
+
+.info {
+  border-color: blue;
+  color: blue;
+  background-color: lightblue;
+}
+
+.error {
+  border-color: red;
+  color: red;
+  background-color: lightpink;
+}

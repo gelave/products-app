@@ -1,0 +1,33 @@
+.formRow {
+  margin: 10px 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.formRow label {
+  margin-bottom: 2px;
+}
+
+.formRow input {
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.formRow textarea {
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.modalToolbar {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.saveButton{
+  margin-left: 10px;
+}

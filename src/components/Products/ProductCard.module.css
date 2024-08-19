@@ -1,0 +1,48 @@
+.card {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.12);
+  height: 500px;
+}
+
+.thumbnail{
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 300px;
+  background-size: cover;
+  position: relative;  
+}
+.cardBody {
+  padding: 20px;
+
+  
+}
+.cardTitle{
+  color: #D17804;
+}
+
+.label {
+  color: #28536B;
+}
+
+.descriptionContainer {
+  overflow: hidden;
+}
+
+.cardDescription{
+  max-height: 100px;
+  text-overflow: ellipsis;
+}
+
+.toolbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.deleteButton{
+  margin-top: 10px;
+}

@@ -1,0 +1,15 @@
+.modalToolbar {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.saveButton{
+  margin-left: 10px;
+}

@@ -1,0 +1,10 @@
+.menu {
+  background-color: #D17804;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonContainer {
+  justify-content: flex-end;
+}

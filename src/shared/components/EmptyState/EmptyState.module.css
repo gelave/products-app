@@ -1,0 +1,20 @@
+.emptyState {
+  border: 2px solid slategray;
+  border-radius: 5px;
+  color: slategray;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  
+}
+
+.contentContainer {
+  text-align: center;
+}
+
+.contentContainer p {
+  margin-bottom: 10px;
+}
+
