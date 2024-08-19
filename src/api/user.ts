@@ -21,6 +21,22 @@ export const logIn = async ({email, password}: UserCredentials) => {
     }
     throw new Error('Usuario o contraseña incorrectos')
   }
-  
-  
+}
+
+
+
+export const signUp = async ({email, password}: UserCredentials) => {
+  try {
+    const response = await client.post('/users', { email, password});
+    console.log('signup:', response);
+    if (response.status === 200) {
+      return response.data;
+    }  
+  } catch (error) {
+    console.log('signup error:', error);
+    if (error instanceof AxiosError){
+      throw new Error(error.response?.data.error);
+    }
+    throw new Error('Usuario o contraseña incorrectos')
+  }
 }
