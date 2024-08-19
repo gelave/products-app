@@ -1,5 +1,6 @@
 import { AxiosError } from "axios";
 import client from "./client";
+import { z } from 'zod';
 
 export type Product = {
   id?: string;
@@ -9,6 +10,50 @@ export type Product = {
   thumbnail: string;
   created_at?: Date;
   updated_at?: Date;
+};
+
+export const ProductSchema =  z.object({
+  name: z.string().trim().min(1),
+  description: z.string().trim().min(1),
+  price: z.number().gt(0),
+});
+
+const fieldTranslation: { [key: string]: string } = {
+  name: "Nombre",
+  description: "Descripción",
+  price: "Precio",
+};
+
+
+export const ProductErrorMap: z.ZodErrorMap = (error, ctx) => {
+  switch (error.code) {
+    case z.ZodIssueCode.invalid_type:
+      if (error.expected === "string") {
+        return { message: "No es una cadena valida" };
+      }
+      if (error.expected === "number") {
+        return { message: "No es un numero valido" };
+      }
+      break;
+    case z.ZodIssueCode.too_small:
+      if (error.type === "string") {
+        return {
+          message: `${
+            fieldTranslation[error.path[0]] ?? error.path[0]
+          } debe tener al menos 1 caracter`,
+        };
+      }
+      if (error.type === "number") {
+        return {
+          message: `${
+            fieldTranslation[error.path[0]] ?? error.path[0]
+          } debe ser mayor a 0`,
+        };
+      }
+      break;
+  }
+
+  return { message: ctx.defaultError };
 };
 
 export type ModalPayload = {
