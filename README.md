@@ -13,7 +13,7 @@ Features
 Installation
 1. Clone the repository:
 bash
-git clone https://github.com/your-username/react104.git
+git clone https://github.com/gelave/products-app.git
 
 2. Install dependencies:
 bash
