@@ -61,9 +61,9 @@ export type ModalPayload = {
   product: Product | undefined;
 };
 
-export const listProducts = async () => {
+export const listProducts = async (page:number = 1) => {
   try {
-    const response = await client.get("/products");
+    const response = await client.get(`/products?page=${page}`);
     return response.data;
   } catch (error) {
     console.log('listProducts error:', error)

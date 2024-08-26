@@ -1,0 +1,39 @@
+.paginationContainer {
+  display: flex;
+  width: fit-content;
+  margin: 20px 0px;
+  border: 1px solid #28536B;
+  border-radius: 5px;
+}
+
+.paginationButton {
+  padding: 5px;  
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disabledPage {
+  border-right: 1px solid gray;  
+  color: gray;
+  background-color: lightgrey;
+ 
+}
+
+.enabledPage {
+  border-right: 1px solid #28536B;
+  color: #28536B;
+}
+
+.first {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.last {
+  border-right: none !important;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

@@ -15,6 +15,7 @@ import EmptyState from "../../shared/components/EmptyState/EmptyState";
 import ConfirmationModal from "../../shared/components/Modal/ConfirmationModal";
 import EditProductModal from "./EditProductModal";
 import TopMenu from "../../shared/components/Menu/TopMenu";
+import Pagination from "../Pagination/Pagination";
 
 const List = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -27,11 +28,16 @@ const List = () => {
     open: false,
     product: undefined,
   });
-
   const [createModal, setCreateModal] = useState<ModalPayload>({
     open: false,
     product: undefined,
   });
+  const [pagination, setPagination] = useState({
+    page: 1,
+    last: 1,
+    prev: null,
+    next: null
+  })
 
   const DEFAULT_PRODUCT: Product = {
     name: "",
@@ -44,10 +50,11 @@ const List = () => {
     getProductList();
   }, []);
 
-  const getProductList = async () => {
+  const getProductList = async (page:number = 1) => {
     try {
-      const productList = await listProducts();
-      setProducts(productList);
+      const productsListPaginated = await listProducts(page);
+      setProducts(productsListPaginated.products);
+      setPagination(productsListPaginated.pagination);
     } catch (error) {
       if (error instanceof Error) {
         console.log("error:", error);
@@ -76,6 +83,10 @@ const List = () => {
     setEditModal({ open: false, product: undefined });
     getProductList();
   };
+
+  const goToPage = (page:number) => {
+    getProductList(page);
+  }
 
   return (
     <>
@@ -119,7 +130,15 @@ const List = () => {
                 />
               </div>
             ))}
+         
         </div>
+        <Pagination 
+            page={pagination.page}
+            last={pagination.last}
+            prev={pagination.prev}
+            next={pagination.next}
+            goToPage={goToPage}
+          />
       </div>
       <ConfirmationModal
         title="Borrar producto"
